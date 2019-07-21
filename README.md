@@ -24,28 +24,20 @@ Add `adriatichr` to the plugins section of your `.eslintrc` configuration file. 
 
 ```json
 {
-    "plugins": [
-        "adriatichr"
-    ]
+  "plugins": ["adriatichr"]
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "adriatichr/rule-name": 2
-    }
+  "rules": {
+    "adriatichr/rule-name": 2
+  }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+- Fill in provided rules here

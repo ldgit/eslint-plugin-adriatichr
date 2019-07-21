@@ -11,21 +11,17 @@ Your designers should not hang any css rules on classes prefixed with `js-`.
 Examples of **incorrect** code for this rule:
 
 ```js
-
 document.getElementsByClassName('foo');
 document.querySelector('.foo');
 $('.foo');
-
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-
 document.getElementsByClassName('js-foo');
 document.querySelector('.js-foo');
 $('.js-foo');
-
 ```
 
 ### Options

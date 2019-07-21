@@ -10,17 +10,36 @@
   "author": "Danko Lučić",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive",
+    "prettier": "prettier \"{*.{js,json,md},{tests,lib,docs}/**/*.{js,json,md}}\" --check"
   },
   "dependencies": {
     "requireindex": "~1.2.0"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "prettier": "1.18.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  }
 }
