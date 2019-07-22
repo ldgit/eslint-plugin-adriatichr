@@ -10,63 +10,45 @@ const RuleTester = require('eslint').RuleTester;
 const ruleTester = new RuleTester();
 ruleTester.run('selector-class-naming', rule, {
   valid: [
-    {
-      code: "someOtherFunction('.foo');",
-    },
-    {
-      code: "document.getElementsByClassName('js-foo');",
-    },
-    {
-      code: "document.querySelector('.js-foo');",
-    },
-    {
-      code: "$('.js-foo');",
-    },
-    {
-      code: "jQuery('.js-foo');",
-    },
+    { code: "someOtherFunction('.foo');" },
+    { code: "document.getElementsByClassName('js-foo');" },
+    { code: "document.querySelector('.js-foo');" },
+    { code: "document.querySelector('#foo');" },
+    { code: "document.querySelector('div');" },
+    { code: "$('.js-foo');" },
+    { code: "jQuery('.js-foo');" },
   ],
 
   invalid: [
     {
       code: "document.getElementsByClassName('foo');",
-      errors: [
-        {
-          message: 'Must use selector with js-* prefix',
-        },
-      ],
+      errors: [{ message: 'Must use selector with js-* prefix' }],
     },
-    {
-      code: "document.querySelector('.foo');",
-      errors: [
-        {
-          message: 'Must use selector with js-* prefix',
-        },
-      ],
-    },
-    {
-      code: "document.querySelectorAll('.foo');",
-      errors: [
-        {
-          message: 'Must use selector with js-* prefix',
-        },
-      ],
-    },
-    {
-      code: "$('.foo');",
-      errors: [
-        {
-          message: 'Must use selector with js-* prefix',
-        },
-      ],
-    },
-    {
-      code: "jQuery('.foo');",
-      errors: [
-        {
-          message: 'Must use selector with js-* prefix',
-        },
-      ],
-    },
+    ...getInvalidExamplesForCssSelectorArguments('document.querySelector'),
+    ...getInvalidExamplesForCssSelectorArguments('document.querySelectorAll'),
+    ...getInvalidExamplesForCssSelectorArguments('$'),
+    ...getInvalidExamplesForCssSelectorArguments('jQuery'),
   ],
 });
+
+function getInvalidExamplesForCssSelectorArguments(functionName) {
+  const selectorExamples = [
+    '.foo',
+    '.js-foo .bar',
+    '.js-foo   .bar',
+    '.js-foo > .bar',
+    '.js-foo>.bar',
+    '.js-foo >   .bar',
+    '.js-foo, .bar',
+    '.js-foo, .bar',
+    '.js-foo>.bar',
+    '.js-foo  >.bar',
+  ];
+
+  return selectorExamples
+    .map(selector => `${functionName}('${selector}')`)
+    .map(code => ({
+      code,
+      errors: [{ message: 'Must use selector with js-* prefix' }],
+    }));
+}
