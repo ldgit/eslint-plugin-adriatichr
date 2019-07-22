@@ -15,6 +15,10 @@ ruleTester.run('selector-class-naming', rule, {
     { code: "document.querySelector('.js-foo');" },
     { code: "document.querySelector('#foo');" },
     { code: "document.querySelector('div');" },
+    { code: "document.querySelector('.js-foo > .js-bar');" },
+    { code: "document.querySelector('.js-foo>.js-bar');" },
+    { code: "document.querySelector('.js-foo ~ .js-bar');" },
+    { code: "document.querySelector('.js-foo, .js-bar');" },
     { code: "$('.js-foo');" },
     { code: "jQuery('.js-foo');" },
   ],
@@ -43,6 +47,10 @@ function getInvalidExamplesForCssSelectorArguments(functionName) {
     '.js-foo, .bar',
     '.js-foo>.bar',
     '.js-foo  >.bar',
+    '.js-foo ~ .bar',
+    '.js-foo ~   .bar',
+    '.js-foo   ~ .bar',
+    '.js-foo~.bar',
   ];
 
   return selectorExamples
