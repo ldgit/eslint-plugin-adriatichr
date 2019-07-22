@@ -1,6 +1,6 @@
 # eslint-plugin-adriatichr
 
-Additional rules we enforce at Adriatic.hr
+Just an experiment for use in Adriatic.hr, company I work for.
 
 ## Installation
 
@@ -40,4 +40,5 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- Fill in provided rules here
+- `no-relative-paths`
+- `selector-class-naming`
