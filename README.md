@@ -1,6 +1,6 @@
 # eslint-plugin-adriatichr
 
-Just an experiment for use in Adriatic.hr, company I work for.
+Just an experiment for eventual use of custom lint rules in Adriatic.hr, company I work for.
 
 ## Installation
 
