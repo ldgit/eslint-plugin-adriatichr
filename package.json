@@ -11,13 +11,16 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "prettier": "prettier \"{*.{js,json,md},{tests,lib,docs}/**/*.{js,json,md}}\" --check"
+    "lint": "eslint ./",
+    "prettier": "prettier \"{*.{js,json,md},{tests,lib,docs}/**/*.{js,json,md}}\" --check",
+    "test:all": "npm run prettier && npm run lint && npm t"
   },
   "dependencies": {
     "requireindex": "~1.2.0"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
     "jest": "^24.8.0",
     "prettier": "1.18.2"
   },
