@@ -2,22 +2,6 @@
 
 Just an experiment for eventual use of custom lint rules in Adriatic.hr, company I work for.
 
-## Installation
-
-You'll first need to install [ESLint](http://eslint.org):
-
-```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-adriatichr`:
-
-```
-$ npm install eslint-plugin-adriatichr --save-dev
-```
-
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-adriatichr` globally.
-
 ## Usage
 
 Add `adriatichr` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
